@@ -1,0 +1,173 @@
+/* ============================================================
+   Research Paper Classification · SimpleGCN
+   ============================================================ */
+
+:root {
+    --font: 'Inter', system-ui, -apple-system, sans-serif;
+    --blue: #2563eb;
+    --blue-dark: #1d4ed8;
+    --slate-900: #0f172a;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- Utilities ---------- */
+.hide {
+    display: none !important;
+}
+
+/* ---------- Animations ---------- */
+@keyframes pop {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.pop {
+    animation: pop 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes nodePulse {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.15); }
+}
+
+.node {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: nodePulse 3.2s ease-in-out infinite;
+}
+
+@keyframes floaty {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-10px); }
+}
+
+.floaty {
+    animation: floaty 7s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* ---------- Landing page ---------- */
+#landing-page {
+    transition: opacity 0.45s ease, visibility 0.45s ease;
+}
+
+#landing-page.leaving {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar-link {
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.sidebar-link:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.sidebar-active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    box-shadow: inset 3px 0 0 #3b82f6;
+}
+
+/* ---------- Chips (topic legend) ---------- */
+.chip {
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.chip:hover {
+    transform: translateY(-1px);
+}
+
+.chip.active {
+    box-shadow: 0 0 0 2px var(--blue);
+    border-color: transparent !important;
+}
+
+/* ---------- Progress bars ---------- */
+.bar {
+    transition: width 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------- Result cards ---------- */
+#results-list .row {
+    transition: background-color 0.15s ease;
+}
+
+#results-list .remove {
+    opacity: 0;
+    transition: opacity 0.15s ease, color 0.15s ease;
+}
+
+#results-list [data-node]:hover .remove {
+    opacity: 1;
+}
+
+/* ---------- Stat cards ---------- */
+.stat-card {
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.stat-card:hover {
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+}
+
+/* ---------- Input focus ring ---------- */
+#node-input:focus {
+    border-color: #3b82f6;
+}
+
+/* ---------- Health badge ---------- */
+#health-badge {
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+/* ---------- Scrollbar (subtle) ---------- */
+main::-webkit-scrollbar {
+    width: 6px;
+}
+main::-webkit-scrollbar-track {
+    background: transparent;
+}
+main::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 99px;
+}
+main::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* ---------- Empty state ---------- */
+.empty-state {
+    animation: fadeIn 0.4s ease both;
+}
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 640px) {
+    #landing-page h1 {
+        font-size: 2.25rem;
+    }
+}

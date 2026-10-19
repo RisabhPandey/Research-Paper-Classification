@@ -1,0 +1,8 @@
+data/
+*.onnx.data
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+Cora
