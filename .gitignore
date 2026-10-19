@@ -1,7 +1,1 @@
-*.onnx.data
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.pytest_cache/
-Cora
+__pycache__
