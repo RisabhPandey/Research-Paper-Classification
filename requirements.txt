@@ -1,19 +1,6 @@
-# API Server Dependencies
+
 fastapi
 uvicorn
-pydantic
 numpy
 onnxruntime
-
-# Machine Learning & Graph Data Dependencies
-torch
-torch-geometric
-onnx
-onnxscript
-
-# Data Analysis & Visualization (from the notebook)
-scikit-learn
-pandas
-matplotlib
-seaborn
-networkx
+pydantic
